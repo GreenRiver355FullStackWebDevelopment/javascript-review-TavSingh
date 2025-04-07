@@ -21,6 +21,16 @@ const reviews = [
   },
 ];
 
+const form = document.querySelector("form");
+
+form.addEventListener("submit", function(e) {
+  // I needed to refresh on forms so I used W3Schools: https://www.w3schools.com/jsref/dom_obj_form.asp
+  // Learned about .preventDefault(): https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault
+  e.preventDefault(); 
+
+  
+});
+
 // Render the reviews
 function renderReviews(review) {
   const container = document.createElement("div");
