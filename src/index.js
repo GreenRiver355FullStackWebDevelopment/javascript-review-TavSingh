@@ -23,3 +23,21 @@ const reviews = [
 /////////////////////////////////////////////////////////////////////
 
 //Your Code Below Here////
+export function renderReviews(reviews) {
+  const reviewsSection = document.querySelector(".review");
+
+  reviews.forEach((review) => {
+    const reviewDiv = document.createElement("div");
+    reviewDiv.classList.add("review_container");
+
+    const img = document.createElement("img");
+    img.src = review.image;
+
+    const innerDiv = document.createElement("div");
+
+    const usernameP = document.createElement("p");
+    usernameP.textContent = review.username;
+
+    
+  });
+}
