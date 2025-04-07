@@ -20,24 +20,33 @@ const reviews = [
       "The coffee was great but the employees didn't let me stay past closing! ): Worst experience ever.",
   },
 ];
-/////////////////////////////////////////////////////////////////////
 
-//Your Code Below Here////
-export function renderReviews(reviews) {
-  const reviewsSection = document.querySelector(".review");
+// Render the reviews
+function renderReviews(review) {
+  const container = document.createElement("div");
+  container.classList.add("review_container");
 
-  reviews.forEach((review) => {
-    const reviewDiv = document.createElement("div");
-    reviewDiv.classList.add("review_container");
+  const img = document.createElement("img");
+  img.src = review.image;
+  container.appendChild(img);
 
-    const img = document.createElement("img");
-    img.src = review.image;
+  const innerDivTag = document.createElement("div");
+  const usernamePTag = document.createElement("p");
 
-    const innerDiv = document.createElement("div");
+  usernamePTag.textContent = review.username;
+  innerDivTag.appendChild(usernamePTag);
 
-    const usernameP = document.createElement("p");
-    usernameP.textContent = review.username;
+  const ratingPTag = document.createElement("p");
+  // my source for the emoji: https://www.shecodes.io/athena/36937-how-to-add-emojis-in-javascript-code
+  ratingPTag.textContent = "⭐".repeat(review.star);
+  innerDivTag.appendChild(ratingPTag);
 
-    
-  });
+  const reviewPTag = document.createElement("p");
+  reviewPTag.textContent = review.review;
+  innerDivTag.appendChild(reviewPTag);
+
+  container.appendChild(innerDivTag);
+  document.body.appendChild(container);
 }
+
+reviews.forEach(renderReviews);
