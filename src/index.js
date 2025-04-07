@@ -28,7 +28,23 @@ form.addEventListener("submit", function(e) {
   // Learned about .preventDefault(): https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault
   e.preventDefault(); 
 
-  
+  const username = document.querySelector("#username");
+  const image = document.querySelector("#image");
+  const star = document.querySelector("#star");
+  const review = document.querySelector("#review");
+
+  const newReview = {
+    username: username.value,
+    image: image.value,
+    star: parseInt(star.value),
+    review: review.value
+  };
+
+  reviews.push(newReview);
+
+  renderReviews(newReview);
+
+  form.reset();
 });
 
 // Render the reviews
